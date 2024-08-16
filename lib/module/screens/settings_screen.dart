@@ -12,7 +12,7 @@ class SettingsScreen extends StatelessWidget {
     return Scaffold(
       body: SingleChildScrollView(
           child: Column(children: [
-        Stack(
+            Stack(
           clipBehavior: Clip.none,
           children: [
             Container(
@@ -34,13 +34,13 @@ class SettingsScreen extends StatelessWidget {
             ),
           ],
         ),
-        SizedBox(height: 20),
-        Padding(
+            SizedBox(height: 20),
+            Padding(
             padding: EdgeInsets.all(8.0),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              SizedBox(width: 20),
-              Text(
+                  SizedBox(width: 20),
+                  Text(
                 "language".tr(),
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -48,11 +48,11 @@ class SettingsScreen extends StatelessWidget {
                   color: Colors.black,
                 ),
               ),
-              SizedBox(height: 10),
-              DropdownButtonFormField<Locale>(
-                value: context.locale,
-                onChanged: (Locale? newLocale) {
-                  if (newLocale != null) {
+                  SizedBox(height: 10),
+                  DropdownButtonFormField<Locale>(
+                    value: context.locale,
+                    onChanged: (Locale? newLocale) {
+                      if (newLocale != null) {
                     context.setLocale(newLocale);
                   }
                 },
@@ -72,10 +72,10 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+                  SizedBox(
                 height: 20,
               ),
-              DropdownButtonFormField<ThemeMode>(
+                  DropdownButtonFormField<ThemeMode>(
                 value: provider.themeMode,
                 onChanged: (ThemeMode? newmode) {
                   if (newmode != null) {
@@ -100,10 +100,11 @@ class SettingsScreen extends StatelessWidget {
               ),
             ]
                 )
+
         )
       ]
           )
-      ), // Close SingleChildScrollView
+      ),
     );
   }
 }

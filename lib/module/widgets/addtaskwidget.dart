@@ -19,12 +19,14 @@ class addtaskwidget extends StatelessWidget {
               children: [
                 Text("Add New Task"),
                 TextField(
+                  controller: provider.titleController,
                   decoration: InputDecoration(
                       hintText: "Title "
                   ),
                 ),
                 SizedBox(height: 20,),
                 TextField(
+                  controller: provider.desController,
                   decoration: InputDecoration(
                       hintText: "desc "
                   ),
@@ -38,7 +40,11 @@ class addtaskwidget extends StatelessWidget {
                     });
                   },
                   child: Text(style: TextStyle(color: Colors.black),provider.selectedatepicker.toString().substring(0,10)),
-                )
+                ),
+                ElevatedButton(onPressed: (){
+                  provider.addTask();
+                  Navigator.pop(context);
+                }, child: Text("Add Task"))
               ],
             ),
         );
