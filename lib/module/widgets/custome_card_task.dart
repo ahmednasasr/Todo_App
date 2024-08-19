@@ -64,21 +64,30 @@ class custome_card_task extends StatelessWidget {
                         children: [
                           Text(
                             task.title
-                            ,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.blue),),
+                            ,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: task.isDone?Colors.green:Colors.blue),),
+                          Text(task.desc,style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color: task.isDone?Colors.green:Colors.blue),),
+                          SizedBox(height: 5,),
                           Row(
                             children: [
                               Icon(Icons.av_timer),
-                              Text("10:pm",style: TextStyle(color: Colors.black),),
+                              Text(task.time,style: TextStyle(color: Colors.black),),
                             ],
                           )
                         ],
                       ),
                       Spacer(),
-                      Container(
-                        color: Colors.blue,
-                        width: 50,
-                        height: 30,
-                        child: Icon(Icons.check,color: Colors.white,),
+                      InkWell(
+                        onTap: (){
+                          provider.Isdone(task);
+                        },
+                        child:
+                        task.isDone? Text("Done..!",style: TextStyle(fontSize:30,color: Colors.green),)
+                            : Container(
+                          color: Colors.blue,
+                          width: 50,
+                          height: 30,
+                          child:Icon(Icons.check,color: Colors.white,),
+                        )
                       ),
                     ],
                   ),

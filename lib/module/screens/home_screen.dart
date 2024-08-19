@@ -43,7 +43,9 @@ class HomeScreen extends StatelessWidget {
                     right: 0,
                     child: EasyDateTimeLine(
                       initialDate: DateTime.now(),
-                      onDateChange: (selectedDate) {},
+                      onDateChange: (selectedDate) {
+                        provider.setdatepicker(selectedDate);
+                      },
                       dayProps: const EasyDayProps(
                         todayHighlightColor: Colors.blue,
                         inactiveDayStyle: DayStyle(

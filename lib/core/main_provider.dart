@@ -8,6 +8,7 @@ class mainprovider extends ChangeNotifier {
   DateTime selectedatepicker = DateTime.now();
   DateTime selectedDateTime = DateTime.now();
   ThemeMode themeMode = ThemeMode.light;
+  TimeOfDay time=TimeOfDay.now();
   TextEditingController titleController = TextEditingController();
   TextEditingController desController = TextEditingController();
   void selectedindex(int index) {
@@ -32,9 +33,10 @@ class mainprovider extends ChangeNotifier {
 
   void addTask() async {
     TaskModel taskModel = TaskModel(
+      time: "${time.hour}:${time.minute}",
         title: titleController.text,
         desc: desController.text,
-        time: selectedDateTime.millisecondsSinceEpoch,
+        date: DateUtils.dateOnly(selectedatepicker).millisecondsSinceEpoch,
         isDone: false);
     await FirebaseFunctions.addTask(taskModel);
     titleController.clear();
@@ -43,11 +45,19 @@ class mainprovider extends ChangeNotifier {
   }
 
   Future<QuerySnapshot<TaskModel>> getTasks(){
-    return FirebaseFunctions.getTasks();
+    return FirebaseFunctions.getTasks(selectedatepicker);
   }
 
   void deleteTask(String id){
     FirebaseFunctions.deleteTask(id);
+    notifyListeners();
+  }
+  void Isdone(TaskModel task){
+    FirebaseFunctions.setDone(task);
+    notifyListeners();
+  }
+  void setTime(TimeOfDay value){
+    time=value;
     notifyListeners();
   }
 

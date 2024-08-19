@@ -17,7 +17,7 @@ class addtaskwidget extends StatelessWidget {
             padding: EdgeInsets.all(15),
             child: Column(
               children: [
-                Text("Add New Task"),
+                Text("Add New Task",style: TextStyle(color: Colors.black),),
                 TextField(
                   controller: provider.titleController,
                   decoration: InputDecoration(
@@ -41,6 +41,19 @@ class addtaskwidget extends StatelessWidget {
                   },
                   child: Text(style: TextStyle(color: Colors.black),provider.selectedatepicker.toString().substring(0,10)),
                 ),
+
+
+                SizedBox(height: 20,),
+                Text("Selected time",style: TextStyle(color: Colors.black),),
+                InkWell(
+                  onTap: (){
+                    showTimePicker(context: context, initialTime: provider.time).then((value) {
+                      provider.setTime(value!);
+                    },);
+                  },
+                  child: Text("${provider.time.hour}:${provider.time.minute}",style: TextStyle(color: Colors.black)),
+                ),
+                Spacer(),
                 ElevatedButton(onPressed: (){
                   provider.addTask();
                   Navigator.pop(context);
