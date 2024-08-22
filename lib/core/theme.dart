@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 class apptheme{
   static final ThemeData lighttheme=ThemeData(
+    appBarTheme: AppBarTheme(
+      foregroundColor: Colors.white,
+      elevation: 0
+    ),
       textTheme: TextTheme(
           bodyMedium: TextStyle(
-              color: Colors.white
+              color: Colors.black
           )
       ),
     useMaterial3: false,
@@ -11,14 +15,17 @@ class apptheme{
     scaffoldBackgroundColor: Colors.transparent,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: Colors.white,
-      )
+      ),
+      cardTheme: CardTheme(
+      color: Colors.white
+  )
   );
 
       static final ThemeData darktheme=ThemeData(
 
         textTheme: TextTheme(
           bodyMedium: TextStyle(
-            color: Colors.black
+            color: Colors.white
           )
         ),
         useMaterial3: false,
@@ -27,7 +34,11 @@ class apptheme{
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         unselectedItemColor: Colors.white,
         backgroundColor: Color(0xff141922),
-      )
+      ),
+          cardTheme: CardTheme(
+              color: Colors.black,
+
+          )
   );
 }
 

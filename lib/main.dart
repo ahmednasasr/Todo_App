@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/module/screens/edit_screen.dart';
 import 'package:todo_app/module/screens/layout_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -43,6 +44,7 @@ class TodoApp extends StatelessWidget {
       routes: {
         SpalshScreen.routename: (_) => SpalshScreen(),
         LayoutScreen.routename: (_) => LayoutScreen(),
+        EditScreen.routename:(_)=>EditScreen(),
       },
       initialRoute: SpalshScreen.routename,
     );

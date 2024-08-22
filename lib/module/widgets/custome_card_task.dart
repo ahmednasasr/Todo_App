@@ -3,6 +3,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/core/main_provider.dart';
 import 'package:todo_app/models/task_model.dart';
+import 'package:todo_app/module/screens/edit_screen.dart';
 
 class custome_card_task extends StatelessWidget {
    custome_card_task({super.key,required this.task});
@@ -32,7 +33,14 @@ class custome_card_task extends StatelessWidget {
                     label: "Delete",
                   ),
                   SlidableAction(
-                    onPressed: (context){},
+                    onPressed: (context){
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => EditScreen(),
+                        ),
+                      );
+                      },
                     backgroundColor: Colors.white,
                     borderRadius: BorderRadius.circular(20),
                     icon: Icons.edit,

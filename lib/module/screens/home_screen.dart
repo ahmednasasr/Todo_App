@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:easy_date_timeline/easy_date_timeline.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/core/main_provider.dart';
 import 'package:todo_app/models/task_model.dart';
