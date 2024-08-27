@@ -18,10 +18,12 @@ class apptheme{
       ),
       cardTheme: CardTheme(
       color: Colors.white
-  )
+  ),
+    iconTheme: IconThemeData(color: Colors.black)
   );
 
       static final ThemeData darktheme=ThemeData(
+
 
         textTheme: TextTheme(
           bodyMedium: TextStyle(
@@ -38,7 +40,10 @@ class apptheme{
           cardTheme: CardTheme(
               color: Colors.black,
 
-          )
-  );
+          ),
+          iconTheme: IconThemeData(color: Colors.white)
+
+
+      );
 }
 

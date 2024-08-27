@@ -42,25 +42,31 @@ class LoginScreen extends StatelessWidget {
                         height: size.height * 0.1,
                       ),
                       TextFormField(
+                        style: TextStyle(color: theme.textTheme.bodyMedium?.color),
                         controller: provider.emailController,
                         decoration: InputDecoration(
+                            hintStyle: TextStyle(color: theme.textTheme.bodyMedium?.color),
                             hintText: "Email",
                             labelText: "Email",
+                            labelStyle:  TextStyle(color: theme.textTheme.bodyMedium?.color),
                             prefixIcon: const Icon(Icons.email),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15),
-                              borderSide: const BorderSide(color: Colors.blue),
+                              borderSide: const BorderSide(color: Colors.white),
                             )),
                       ),
                       SizedBox(
                         height: size.height * 0.02,
                       ),
                       TextFormField(
+                        style: TextStyle(color: theme.textTheme.bodyMedium?.color),
                         controller: provider.passwordController,
                         obscureText: provider.isSecure,
                         decoration: InputDecoration(
                             prefixIcon: const Icon(Icons.password),
                             hintText: "Password",
+                            hintStyle: TextStyle(color: theme.textTheme.bodyMedium?.color),
+                            labelStyle:  TextStyle(color: theme.textTheme.bodyMedium?.color),
                             labelText: "Password",
                             suffixIcon: IconButton(
                                 onPressed: () {

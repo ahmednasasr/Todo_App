@@ -46,11 +46,14 @@ class CreateAccountScreen extends StatelessWidget {
                           height: size.height * 0.07,
                         ),
                         TextFormField(
+                          style: TextStyle(color: theme.textTheme.bodyMedium?.color),
                           controller: provider.nameController,
                           decoration: InputDecoration(
+                              hintStyle: TextStyle(color: theme.textTheme.bodyMedium?.color),
+                              labelStyle:  TextStyle(color: theme.textTheme.bodyMedium?.color),
                               hintText: "Name",
                               labelText: "Name",
-                              prefixIcon: const Icon(Icons.person),
+                              prefixIcon: const Icon(Icons.person,color: Colors.white ,),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
                                 borderSide:
@@ -68,11 +71,14 @@ class CreateAccountScreen extends StatelessWidget {
                           height: size.height * 0.02,
                         ),
                         TextFormField(
+                          style: TextStyle(color: theme.textTheme.bodyMedium?.color),
                           controller: provider.phoneController,
                           decoration: InputDecoration(
+                              hintStyle: TextStyle(color: theme.textTheme.bodyMedium?.color),
+                              labelStyle:  TextStyle(color: theme.textTheme.bodyMedium?.color),
                               hintText: "Phone",
                               labelText: "Phone",
-                              prefixIcon: const Icon(Icons.phone),
+                              prefixIcon: const Icon(Icons.phone,color: Colors.white),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
                                 borderSide:
@@ -90,11 +96,14 @@ class CreateAccountScreen extends StatelessWidget {
                           height: size.height * 0.02,
                         ),
                         TextFormField(
+                          style: TextStyle(color: theme.textTheme.bodyMedium?.color),
                           controller: provider.emailController,
                           decoration: InputDecoration(
+                              hintStyle: TextStyle(color: theme.textTheme.bodyMedium?.color),
+                              labelStyle:  TextStyle(color: theme.textTheme.bodyMedium?.color),
                               hintText: "Email",
                               labelText: "Email",
-                              prefixIcon: const Icon(Icons.email),
+                              prefixIcon: const Icon(Icons.email,color: Colors.white),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(15),
                                 borderSide:
@@ -115,10 +124,13 @@ class CreateAccountScreen extends StatelessWidget {
                           height: size.height * 0.02,
                         ),
                         TextFormField(
+                          style: TextStyle(color: theme.textTheme.bodyMedium?.color),
                           controller: provider.passwordController,
                           obscureText: provider.isSecure,
                           decoration: InputDecoration(
-                              prefixIcon: const Icon(Icons.password),
+                              hintStyle: TextStyle(color: theme.textTheme.bodyMedium?.color),
+                              labelStyle:  TextStyle(color: theme.textTheme.bodyMedium?.color),
+                              prefixIcon: const Icon(Icons.password,color: Colors.white),
                               hintText: "Password",
                               labelText: "Password",
                               suffixIcon: IconButton(

@@ -108,7 +108,7 @@ class LayoutScreen extends StatelessWidget {
               color: Colors.white,
               child: BottomNavigationBar(
                   backgroundColor: Theme.of(context).bottomNavigationBarTheme.backgroundColor,
-                  unselectedItemColor: Colors.white,
+                  unselectedItemColor: Colors.black,
                   elevation: 0,
                   onTap: (value){
                     provider.selectedindex(value);

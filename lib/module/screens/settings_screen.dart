@@ -100,11 +100,16 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 ),
               ),
+                  SizedBox(height: 20,),
                   Consumer<mainprovider>(
                     builder: (context, provider, child) {
-                      return ElevatedButton(onPressed: (){
-                        provider.logout(context);
-                      }, child: Text("Log out"));
+                      return Container(
+                        height: 50,
+                        width: double.infinity,
+                        child: ElevatedButton(onPressed: (){
+                          provider.logout(context);
+                        }, child: Text("Log out")),
+                      );
                     },
                   )
             ]

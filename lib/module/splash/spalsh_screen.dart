@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_app/core/main_provider.dart';
 import 'package:todo_app/module/screens/layout_screen.dart';
 
 import '../auth/pages/login_screen.dart';
@@ -28,7 +30,9 @@ class _SpalshScreenState extends State<SpalshScreen> {
   }
   @override
   Widget build(BuildContext context) {
+    var theme=Theme.of(context);
     return Scaffold(
+      backgroundColor: theme.primaryColor,
         body: Center(
           child: Image.asset("assets/images/splash.png"),
         ),
