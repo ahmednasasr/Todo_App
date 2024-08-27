@@ -34,10 +34,10 @@ class custome_card_task extends StatelessWidget {
                   ),
                   SlidableAction(
                     onPressed: (context){
-                      Navigator.pushReplacement(
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => EditScreen(),
+                          builder: (context) => EditScreen(task: task),
                         ),
                       );
                       },

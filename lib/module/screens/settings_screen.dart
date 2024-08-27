@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:provider/provider.dart';
@@ -45,11 +46,13 @@ class SettingsScreen extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
-                  color: Colors.black,
+                  color: Theme.of(context).textTheme.bodyMedium?.color,
                 ),
               ),
                   SizedBox(height: 10),
                   DropdownButtonFormField<Locale>(
+                    dropdownColor:Theme.of(context).textTheme.bodyMedium?.color?.withOpacity(0.4),
+
                     value: context.locale,
                     onChanged: (Locale? newLocale) {
                       if (newLocale != null) {
@@ -59,11 +62,11 @@ class SettingsScreen extends StatelessWidget {
                 items: [
                   DropdownMenuItem(
                     value: Locale('en'),
-                    child: Text("english".tr()),
+                    child: Text("english".tr(),style: TextStyle( color: Theme.of(context).textTheme.bodyMedium?.color,)),
                   ),
                   DropdownMenuItem(
                     value: Locale('ar'),
-                    child: Text("arabic".tr()),
+                    child: Text("arabic".tr(),style: TextStyle( color: Theme.of(context).textTheme.bodyMedium?.color,),),
                   ),
                 ],
                 decoration: InputDecoration(
@@ -72,11 +75,10 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 ),
               ),
-                  SizedBox(
-                height: 20,
-              ),
+                  SizedBox(height: 20,),
                   DropdownButtonFormField<ThemeMode>(
-                value: provider.themeMode,
+                    dropdownColor:Theme.of(context).textTheme.bodyMedium?.color?.withOpacity(0.3),
+                    value: provider.themeMode,
                 onChanged: (ThemeMode? newmode) {
                   if (newmode != null) {
                     provider.changetheme(newmode);
@@ -85,11 +87,11 @@ class SettingsScreen extends StatelessWidget {
                 items: [
                   DropdownMenuItem(
                     value: ThemeMode.light,
-                    child: Text("Light".tr()),
+                    child: Text("Light".tr(),style: TextStyle( color: Theme.of(context).textTheme.bodyMedium?.color,)),
                   ),
                   DropdownMenuItem(
                     value: ThemeMode.dark,
-                    child: Text("Dark".tr()),
+                    child: Text("Dark".tr(),style: TextStyle( color: Theme.of(context).textTheme.bodyMedium?.color,)),
                   ),
                 ],
                 decoration: InputDecoration(
@@ -98,6 +100,13 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 ),
               ),
+                  Consumer<mainprovider>(
+                    builder: (context, provider, child) {
+                      return ElevatedButton(onPressed: (){
+                        provider.logout(context);
+                      }, child: Text("Log out"));
+                    },
+                  )
             ]
                 )
 

@@ -5,6 +5,9 @@ import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'core/main_provider.dart';
 import 'core/theme.dart';
+import 'models/task_model.dart';
+import 'module/auth/pages/creat_account_screen.dart';
+import 'module/auth/pages/login_screen.dart';
 import 'module/splash/spalsh_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -44,7 +47,9 @@ class TodoApp extends StatelessWidget {
       routes: {
         SpalshScreen.routename: (_) => SpalshScreen(),
         LayoutScreen.routename: (_) => LayoutScreen(),
-        EditScreen.routename:(_)=>EditScreen(),
+        EditScreen.routename: (context) => EditScreen(task: ModalRoute.of(context)!.settings.arguments as TaskModel),
+        CreateAccountScreen.routeName: (_) => CreateAccountScreen(),
+        LoginScreen.routeName: (_) => LoginScreen(),
       },
       initialRoute: SpalshScreen.routename,
     );

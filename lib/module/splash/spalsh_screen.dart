@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_app/module/screens/layout_screen.dart';
+
+import '../auth/pages/login_screen.dart';
 
 class SpalshScreen extends StatefulWidget {
   const SpalshScreen({super.key});
@@ -12,10 +15,16 @@ class SpalshScreen extends StatefulWidget {
 class _SpalshScreenState extends State<SpalshScreen> {
   @override
   void initState() {
-    super.initState();
-    Future.delayed(Duration(seconds: 5),(){
-      Navigator.of(context).pushReplacementNamed(LayoutScreen.routename);
+    Future.delayed(const Duration(seconds: 5), () {
+      if (FirebaseAuth.instance.currentUser != null) {
+        Navigator.pushNamedAndRemoveUntil(
+            context, LayoutScreen.routename, (route) => false);
+      } else {
+        Navigator.pushNamedAndRemoveUntil(
+            context, LoginScreen.routeName, (route) => false);
+      }
     });
+    super.initState();
   }
   @override
   Widget build(BuildContext context) {

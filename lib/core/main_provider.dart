@@ -1,7 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_app/models/task_model.dart';
 import 'package:todo_app/service/firebase_functions.dart';
+
+import '../models/user_model.dart';
+import '../module/auth/pages/login_screen.dart';
 
 class mainprovider extends ChangeNotifier {
   int selectindex = 0;
@@ -11,6 +15,7 @@ class mainprovider extends ChangeNotifier {
   TimeOfDay time=TimeOfDay.now();
   TextEditingController titleController = TextEditingController();
   TextEditingController desController = TextEditingController();
+  UserModel? user;
   void selectedindex(int index) {
     selectindex = index;
     notifyListeners();
@@ -59,6 +64,27 @@ class mainprovider extends ChangeNotifier {
   void setTime(TimeOfDay value){
     time=value;
     notifyListeners();
+  }
+  void updateTask(TaskModel task) async {
+    task.title = titleController.text;
+    task.desc = desController.text;
+    task.time = "${time.hour}:${time.minute}";
+
+    await FirebaseFunctions.updateTask(task);
+
+    titleController.clear();
+    desController.clear();
+    notifyListeners();
+  }
+  void getUser() async {
+    user = await FirebaseFunctions.getUser();
+    notifyListeners();
+  }
+
+  void logout(BuildContext context) {
+    FirebaseFunctions.logout();
+    Navigator.pushNamedAndRemoveUntil(
+        context, LoginScreen.routeName, (route) => false);
   }
 
 }

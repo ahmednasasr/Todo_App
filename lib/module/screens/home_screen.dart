@@ -70,7 +70,7 @@ class HomeScreen extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(height: 80,),
+              SizedBox(height: 60,),
               FutureBuilder(
                 future: provider.getTasks() , builder: (context, snapshot) {
                 if(snapshot.connectionState==ConnectionState.waiting){
