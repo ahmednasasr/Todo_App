@@ -1,9 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_app/models/task_model.dart';
 import 'package:todo_app/service/firebase_functions.dart';
-
 import '../models/user_model.dart';
 import '../module/auth/pages/login_screen.dart';
 
